@@ -1,4 +1,4 @@
-const User = require("./user");
+const User = require("../model/user");
 
 const CreateUser = (name, email, password) => {
 	const newUser = new User({
@@ -6,6 +6,7 @@ const CreateUser = (name, email, password) => {
 		email: email,
 		password: password,
 	});
+	
 
 	return newUser.save();
 };
@@ -13,3 +14,4 @@ const CreateUser = (name, email, password) => {
 module.exports = {
 	CreateUser,
 };
+
