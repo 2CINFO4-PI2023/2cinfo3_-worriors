@@ -5,7 +5,7 @@ const Ticket = require('../model/ticket');
 // Route pour créer un ticket
 router.post('/tickets', (req, res) => {
   const newTicket = new Ticket(req.body);
-  newTicket.save((err, ticket) => {
+  newTicket.save.then((ticket) => {
     if (err) {
       res.status(500).json({ error: err.message });
     } else {
@@ -16,14 +16,12 @@ router.post('/tickets', (req, res) => {
 
 // Route pour obtenir tous les tickets
 router.get('/tickets', (req, res) => {
-  Ticket.find({}, (err, tickets) => {
-    if (err) {
-      res.status(500).json({ error: err.message });
-    } else {
+  Ticket.find({}).then((tickets) => {
       res.json(tickets);
-    }
-  });
-});
+  }).catch( (err) =>{
+    res.status(500).json({ error: err.message });
+  })
+})
 
 // Route pour obtenir un ticket spécifique
 router.get('/tickets/:id', (req, res) => {
