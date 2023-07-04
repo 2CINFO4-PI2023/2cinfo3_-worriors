@@ -1,5 +1,18 @@
 const router = require("express").Router();
-const { createUser } = require("../controller/user");
+const { createUser, getAllUsers } = require("../controller/user");
+
+router.get("/all", (req, res) => {
+  getAllUsers()
+    .then((users) => {
+      // authorisation here
+      res.send(users);
+    })
+    .catch((err) => {
+      res.status(404).error;
+    });
+});
+
+router.get("/me", (req, res) => {});
 
 router.post("/", (req, res) => {
   let { firstName, lastName, email, password, birthday, role } = req.body;
@@ -25,7 +38,7 @@ router.post("/", (req, res) => {
 });
 
 router.put("/:id", (req, res) => {
-	
+  let attirbutes = res.body;
 });
 
 module.exports = router;

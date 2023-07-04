@@ -14,7 +14,9 @@ passport.use(
       callbackURL: "/oauth2/redirect/google",
       scope: ["profile"],
     },
-    function verify(issuer, profile, cb) {}
+    function verify(issuer, profile, cb) {
+      console.log("degla");
+    }
   )
 );
 
@@ -30,7 +32,9 @@ passport.deserializeUser(function (user, cb) {
   });
 });
 
-router.get("/login/fedrated/google", passport.authenticate("google"));
+router.get("/login/federated/google", (req, res) => {
+  passport.authenticate("google")(req, res);
+});
 
 router.get(
   "/oauth2/redirect/google",
@@ -45,7 +49,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/login", (req, res) => {
-  res.send("hi");
+  res.send("this is /login");
 });
 
 router.post("/logout", function (req, res, next) {
