@@ -3,25 +3,30 @@ const router = express.Router();
 const Ticket = require('../model/ticket');
 
 // Route pour créer un ticket
+// router.post('/tickets', (req, res) => {
+//   const newTicket = new Ticket(req.body);
+//   newTicket.save((err, ticket) => {
+//     if (err) {
+//       res.status(500).json({ error: err.message });
+//     } else {
+//       res.status(201).json(ticket);
+//     }
+//   });
+// });
+
 router.post('/tickets', (req, res) => {
   const newTicket = new Ticket(req.body);
-  newTicket.save.then((ticket) => {
-    if (err) {
-      res.status(500).json({ error: err.message });
-    } else {
-      res.status(201).json(ticket);
-    }
-  });
+  newTicket.save().then(savedTicket=>{
+    req.status(201).send(savedTicket)
+  }).catch(err=>req.status(500).send({message:err.message}));
 });
 
 // Route pour obtenir tous les tickets
 router.get('/tickets', (req, res) => {
-  Ticket.find({}).then((tickets) => {
-      res.json(tickets);
-  }).catch( (err) =>{
-    res.status(500).json({ error: err.message });
-  })
-})
+  Ticket.find().then(tickets => {
+      res.json(tickets)
+  }).catch(err=>req.status(500).send({message:err.message}))
+});
 
 // Route pour obtenir un ticket spécifique
 router.get('/tickets/:id', (req, res) => {
