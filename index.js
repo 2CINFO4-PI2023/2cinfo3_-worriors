@@ -19,7 +19,7 @@ app.use('/api', ticketTypeRoutes);
 app.use(express.json());
 app.use("/user", userRouter);
 
-const mongoDBURL = 'mongodb://localhost:27017/bibconnect';
+const mongoDBURL = 'mongodb://127.0.0.1:27017/bibconnect';
 mongoose.connect(mongoDBURL, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Erreur de connexion à la base de données'));
