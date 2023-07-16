@@ -17,6 +17,7 @@ router.get("/all", auth, admin, (req, res) => {
 	getAllUsers().then((users) => {
 		res.send(users);
 	});
+	
 });
 
 router.get("/me", auth, (req, res) => {
