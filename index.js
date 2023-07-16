@@ -23,12 +23,8 @@ app.use(express.json());
 // add the tickets route to routes.js
 // add the tickets/types route to routes.js
 app.use("/users", userRouter);
-app.use('/tickets', ticketRoutes);
 app.use('/tickets/types', ticketTypeRoutes);
-
-
-
-
+app.use('/tickets', ticketRoutes);
 
 
 const port = 3000;

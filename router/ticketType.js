@@ -15,12 +15,13 @@ router.post("/", (req, res) => {
 
 // Route pour obtenir tous les types de tickets
 router.get('/', (req, res) => {
-  Ticket.find()
+  TicketType.find()
     .then(ticketTypes => {
       res.json(ticketTypes);
     })
     .catch(err => {
-      res.status(500).json({ message: err.message });
+      console.log(err)
+      res.status(500).json({ message: "your mom is a hoe" });
     });
 });
 
@@ -32,13 +33,14 @@ router.get('/:id', (req, res) => {
     } else {
       return res.status(404).send("not found")
     }
-  }).catch(err => res.status(500).send("server error"))
+  }).catch(err => res.status(500).send(" error"))
 
 });
 
 // Route pour mettre à jour un type de ticket
 router.put('/:id', (req, res) => {
-  TicketType.findById(req.params.id)
+  let {name}=req.body;
+  TicketType.findByIdAndUpdate(req.params.id,name)
     .then(ticketType => {
       if (ticketType) {
         res.json(ticketType);
