@@ -39,8 +39,37 @@ router.get('/:id', (req, res) => {
 
 router.get("/user/userid")
 
-router.get("/me")//gives all the tickets of the user
-router.get("/me/:id")//gives a specific ticket of a user
+
+//gives all the tickets of the user
+router.get('/me', (req, res) => {
+  const userId = req.user.id;
+  Ticket.find({ userId })
+    .then(tickets => {
+      res.json(tickets);
+    })
+    .catch(err => {
+      res.status(500).json({ error: err.message });
+    });
+});
+
+
+//gives a specific ticket of a user
+router.get('/me/:id', (req, res) => {
+  const userId = req.user.id; 
+  const ticketId = req.params.id;
+  
+  Ticket.findOne({ _id: ticketId, userId })
+    .then(ticket => {
+      if (ticket) {
+        res.json(ticket);
+      } else {
+        res.status(404).json({ message: 'Ticket not found' });
+      }
+    })
+    .catch(err => {
+      res.status(500).json({ error: err.message });
+    });
+});
 
 
 
