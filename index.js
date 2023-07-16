@@ -20,8 +20,9 @@ mongoose.connect(mongoDBURL, { useNewUrlParser: true, useUnifiedTopology: true }
 }));
 
 app.use(express.json());
-
-app.use("/user", userRouter);
+// add the tickets route to routes.js
+// add the tickets/types route to routes.js
+app.use("/users", userRouter);
 app.use('/tickets', ticketRoutes);
 app.use('/tickets/types', ticketTypeRoutes);
 

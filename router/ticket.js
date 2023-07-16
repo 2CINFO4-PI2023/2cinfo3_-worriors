@@ -46,7 +46,8 @@ router.get("/me/:id")//gives a specific ticket of a user
 
 // Route pour mettre à jour un ticket
 router.put('/:id', (req, res) => {
-  Ticket.findById(req.params.id)
+  let {status, submissionDate, content}=req.body;
+  Ticket.findByIdAndUpdate(req.params.id,{status,content,submissionDate})
     .then(ticket => {
       if (ticket) {
         res.json(ticket);

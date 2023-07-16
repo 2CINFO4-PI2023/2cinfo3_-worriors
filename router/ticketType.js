@@ -37,7 +37,7 @@ router.get('/:id', (req, res) => {
 });
 
 // Route pour mettre à jour un type de ticket
-rrouter.put('/:id', (req, res) => {
+router.put('/:id', (req, res) => {
   TicketType.findById(req.params.id)
     .then(ticketType => {
       if (ticketType) {
