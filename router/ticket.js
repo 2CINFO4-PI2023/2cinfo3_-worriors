@@ -3,15 +3,18 @@ const router = express.Router();
 const Ticket = require('../model/ticket');
 
 
-router.post('/tickets', (req, res, next) => {
+router.post('/', (req, res) => {
   const newTicket = new Ticket(req.body);
-  newTicket.save().then(savedTicket=>{
-    req.status(201).send(savedTicket)
-  }).catch(err=>req.status(500).send({message:err.message}));
+  newTicket.save().then(savedTicket => {
+    res.status(201).send(savedTicket)
+  }).catch(err => {
+    console.log(err)
+    return res.status(500).send({ message: err.message })
+  });
 });
 
 // Route pour obtenir tous les tickets
-router.get('/tickets', (req, res,next) => {
+router.get('/', (req, res) => {
   Ticket.find()
     .then(tickets => {
       res.json(tickets);
@@ -23,22 +26,26 @@ router.get('/tickets', (req, res,next) => {
 
 
 // Route pour obtenir un ticket spécifique
-router.get('/tickets/:id', (req, res,next) => {
-  Ticket.findById(req.params.id, (err, ticket) => {
-    if (err) {
-      res.status(500).json({ error: err.message });
+router.get('/:id', (req, res) => {
+  Ticket.findById(req.params.id).then(ticket => {
+    if (ticket) {
+      return res.status(200).send(ticket)
     } else {
-      if (ticket) {
-        res.json(ticket);
-      } else {
-        res.status(404).json({ message: 'Ticket non trouvé' });
-      }
+      return res.status(404).send("not found")
     }
-  });
+  }).catch(err => res.status(500).send("server error"))
+
 });
 
+router.get("/user/userid")
+
+router.get("/me")//gives all the tickets of the user
+router.get("/me/:id")//gives a specific ticket of a user
+
+
+
 // Route pour mettre à jour un ticket
-router.get('/tickets/:id', (req, res,next) => {
+router.put('/:id', (req, res) => {
   Ticket.findById(req.params.id)
     .then(ticket => {
       if (ticket) {
@@ -53,7 +60,7 @@ router.get('/tickets/:id', (req, res,next) => {
 });
 
 // Route pour supprimer un ticket
-router.delete('/tickets/:id', (req, res,next) => {
+router.delete('/:id', (req, res) => {
   Ticket.findByIdAndRemove(req.params.id)
     .then(ticket => {
       if (ticket) {
