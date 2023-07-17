@@ -11,10 +11,12 @@ router.post('/', (req, res) => {
   }).catch(err => {
     console.log(err)
     return res.status(500).send({ message: err.message })
+
   });
 });
 
 // Route pour obtenir tous les tickets
+
 router.get('/', (req, res) => {
   Ticket.find()
     .then(tickets => {
@@ -94,16 +96,20 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
   Ticket.findByIdAndRemove(req.params.id)
     .then(ticket => {
+
+
       if (ticket) {
         res.json({ message: 'Ticket supprimé avec succès' });
       } else {
         res.status(404).json({ message: 'Ticket non trouvé' });
       }
+
     })
     .catch(err => {
       res.status(500).json({ error: err.message });
     });
 });
+
 
 
 module.exports = router;

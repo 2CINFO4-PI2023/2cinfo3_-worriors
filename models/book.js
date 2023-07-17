@@ -1,12 +1,13 @@
 const mongoose = require("mongoose");
 
-const ticketTypeSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
+
+
+const bookSchema = new mongoose.Schema({
+	title: String,
   tickets: []
 });
 
-const TicketType = mongoose.model("TicketType", ticketTypeSchema);
-module.exports = TicketType;
+const Book = mongoose.model("Book", bookSchema);
+
+module.exports = Book;
+
