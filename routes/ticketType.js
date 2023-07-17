@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const TicketType = require("../model/ticketType");
+const TicketType = require("../models/ticketType");
 
 // Route pour créer un type de ticket
 router.post("/", (req, res) => {
@@ -39,8 +39,8 @@ router.get('/:id', (req, res) => {
 
 // Route pour mettre à jour un type de ticket
 router.put('/:id', (req, res) => {
-  let {name}=req.body;
-  TicketType.findByIdAndUpdate(req.params.id,name)
+  let {state}=req.body;
+  TicketType.findByIdAndUpdate(req.params.id,{state})
     .then(ticketType => {
       if (ticketType) {
         res.json(ticketType);

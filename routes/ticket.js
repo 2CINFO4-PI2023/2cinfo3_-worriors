@@ -4,6 +4,7 @@ const Ticket = require('../model/ticket');
 
 
 router.post('/', (req, res) => {
+  // validate input (a user and type must exist before hand)
   const newTicket = new Ticket(req.body);
   newTicket.save().then(savedTicket => {
     res.status(201).send(savedTicket)

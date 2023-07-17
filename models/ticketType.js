@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
 const ticketTypeSchema = new mongoose.Schema({
-  name: {
+  state: {
     type: String,
-    required: true
+    required: true,
+    unique:true,
   }
 });
 
