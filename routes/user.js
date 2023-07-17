@@ -1,3 +1,5 @@
+
+
 const crypto = require("crypto");
 const router = require("express").Router();
 
@@ -111,6 +113,7 @@ router.patch("/me", auth, async (req, res) => {
 router.delete("/:id", auth, admin, async (req, res) => {
 	let user = await deleteUser(req.params.id);
 	res.status(200).send({ message: "user deleted", user });
+
 });
 
 module.exports = router;
