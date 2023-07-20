@@ -2,9 +2,13 @@ const { getUserByEmail } = require("./user");
 const bcrypt = require("bcrypt");
 
 const authenticate = async (email, password) => {
-	return getUserByEmail(email).then((user) =>
-		!user ? false : bcrypt.compare(password, user.password) ? user : false
-	);
+	let user = await getUserByEmail(email);
+	if (user) {
+		let compare = await bcrypt.compare(password, user.password);
+		return compare ? { user } : flase;
+	} else {
+		return false;
+	}
 };
 
 let encrypt = async (password) => {

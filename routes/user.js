@@ -1,5 +1,3 @@
-
-
 const crypto = require("crypto");
 const router = require("express").Router();
 
@@ -19,7 +17,6 @@ router.get("/all", auth, admin, (req, res) => {
 	getAllUsers().then((users) => {
 		res.send(users);
 	});
-	
 });
 
 router.get("/me", auth, (req, res) => {
@@ -52,42 +49,40 @@ router.get("/confirm/:token", auth, (req, res) => {
 
 router.post("/register", async (req, res) => {
 	// throw new Error("this is an error");
-	let { firstName, lastName, email, password, birthday, role } = req.body;
+	let { firstName, lastName, email, password, birthday } = req.body;
 	//! validate input
-	birthday = new Date(
-		Date.UTC(
-			parseInt(birthday.year),
-			parseInt(birthday.month) - 1,
-			parseInt(birthday.day)
-		)
-	);
+	birthday = new Date();
 	let hashedPassword = await encrypt(password);
+	try {
+		let savedUser = await createUser({
+			firstName,
+			lastName,
+			email,
+			password: hashedPassword,
+			birthday,
+			role: "admin",
+			confirmed: false,
+		});
 
-	let savedUser = await createUser({
-		firstName,
-		lastName,
-		email,
-		password: hashedPassword,
-		birthday,
-		role,
-		confirmed: false,
-	});
-
-	console.log("New user created", savedUser);
-	let token = crypto.randomBytes(32).toString("hex");
-	const confirmationLink = `http://localhost:3000/users/confirm/${token}`;
-	// sendConfirmationEmail(savedUser.email, confirmationLink);
-	req.session.passport = {
-		user: {
-			_id: savedUser.id,
-			email: savedUser.email,
-			confirmed: savedUser.confirmed,
-			role: savedUser.role,
-			token,
-		},
-	};
-	res.status(200).send({ message: "created new user", savedUser });
-	//? redirect to login to auth either on the backend or on the front
+		console.log("New user created", savedUser);
+		let token = crypto.randomBytes(32).toString("hex");
+		const confirmationLink = `http://localhost:3000/users/confirm/${token}`;
+		// sendConfirmationEmail(savedUser.email, confirmationLink);
+		req.session.passport = {
+			user: {
+				_id: savedUser._id,
+				email: savedUser.email,
+				confirmed: savedUser.confirmed,
+				role: savedUser.role,
+				token,
+			},
+		};
+		res.status(200).send({ message: "created new user", savedUser });
+		//? redirect to login to auth either on the backend or on the front
+	} catch (error) {
+		console.log(error);
+		res.status(403).send("user already created");
+	}
 });
 
 router.patch("/:id", async (req, res) => {
@@ -113,7 +108,6 @@ router.patch("/me", auth, async (req, res) => {
 router.delete("/:id", auth, admin, async (req, res) => {
 	let user = await deleteUser(req.params.id);
 	res.status(200).send({ message: "user deleted", user });
-
 });
 
 module.exports = router;

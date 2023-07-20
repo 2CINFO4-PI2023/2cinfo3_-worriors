@@ -14,7 +14,7 @@ module.exports = () => {
 	const myFormat = printf(({ level, message, label, timestamp }) => {
 		return `${timestamp} [${label}] ${level}: ${message}`;
 	});
-	const logger = winston.createLogger({
+	const logger = createLogger({
 		level: "info",
 		format: combine(
 			colorize(),
@@ -34,5 +34,6 @@ module.exports = () => {
 			new transports.File({ filename: "combined.log", format: uncolorize() }),
 		],
 	});
+
 	return logger;
 };

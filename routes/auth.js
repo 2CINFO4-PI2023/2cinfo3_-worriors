@@ -26,10 +26,11 @@ router.get(
 router.post("/login", async (req, res) => {
 	let { email, password } = req.body;
 	let authUser = await authenticate(email, password);
+	// console.log({ authUser });
 	if (authUser) {
 		req.session.passport = {
 			user: {
-				_id: authUser.id,
+				_id: authUser._id,
 				email: authUser.email,
 				confirmed: authUser.confirmed,
 				role: authUser.role,
@@ -37,7 +38,7 @@ router.post("/login", async (req, res) => {
 		};
 		res.send(authUser); //? might redirect instead
 	} else {
-		res.status(404).send("not found");
+		res.status(401).send("failed to login");
 	}
 });
 

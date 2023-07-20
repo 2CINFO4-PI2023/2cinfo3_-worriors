@@ -3,7 +3,6 @@ const express = require("express");
 
 const morgan = require("morgan");
 
-const logger = require("./start/logger");
 const error = require("./middlewares/error");
 
 const userRouter = require("./routes/user");
@@ -24,7 +23,7 @@ app.use("/users", userRouter);
 
 app.use("/tickets/types", ticketTypeRoutes);
 app.use("/tickets", ticketRoutes);
-app.use(error(logger));
+app.use(error);
 
 // Start the server
 const port = process.env.PORT || 3000;

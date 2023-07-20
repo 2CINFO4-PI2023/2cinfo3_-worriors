@@ -2,13 +2,9 @@ const User = require("../models/user");
 
 const createUser = async (attirbutes) => {
 	// validate the attributes
-	try {
-		
-		const newUser = new User(attirbutes);
-		return await newUser.save();
-	} catch (error) {
-		return 
-	}
+
+	const newUser = new User(attirbutes);
+	return await newUser.save();
 };
 
 const getAllUsers = async () => {

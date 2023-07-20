@@ -1,2 +1,5 @@
 2023-07-12T14:30:40.551Z [bibcon] info: this is an error
 2023-07-16T21:21:24.202Z [bibcon] info: E11000 duplicate key error collection: passport.users index: email_1 dup key: { : "7asyou@gmail.com" }
+2023-07-19T14:26:40.106Z [bibcon] error: hello wolrld
+2023-07-19T14:27:26.163Z [bibcon] error: Cannot read properties of undefined (reading 'id')
+2023-07-19T14:28:18.264Z [bibcon] error: Cannot read properties of undefined (reading 'id')

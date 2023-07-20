@@ -1,10 +1,12 @@
 const express = require("express");
 const passport = require("passport");
+const cors = require("cors");
 
 const auth = require("../routes/auth");
 const user = require("../routes/user");
 
 module.exports = (app) => {
+	app.use(cors());
 	app.use(express.json());
 	app.use(passport.initialize());
 	app.use(passport.session());
