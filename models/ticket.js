@@ -11,6 +11,10 @@ const ticketSchema = new mongoose.Schema({
     ref: 'TicketType',
     required: true
   },
+  title: {
+    type: String,
+    required: true
+  },
   content: {
     type: String,
     required: true
@@ -23,6 +27,11 @@ const ticketSchema = new mongoose.Schema({
     type: String,
     enum: ['Open', 'In Progress', 'Resolved'],
     default: 'Open'
+  },
+  priority: {
+    type: String,
+    enum: ['High', 'Medium', 'Low'],
+    default: 'Low'
   }
 });
 
