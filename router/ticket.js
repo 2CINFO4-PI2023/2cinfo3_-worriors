@@ -40,11 +40,10 @@ router.get('/:id', (req, res) => {
 router.get("/user/userid")
 
 
-//gives all the tickets of the user
+//gives all user tickets
 router.get('/me', (req, res) => {
-  const userId = req.user.id;
-  Ticket.find({ userId })
-    .then(tickets => {
+  // const userId = req.user.id;
+  Ticket.findById(req.user.id).then(tickets => {
       res.json(tickets);
     })
     .catch(err => {
@@ -53,12 +52,12 @@ router.get('/me', (req, res) => {
 });
 
 
-//gives a specific ticket of a user
+//gives a specific user ticket
 router.get('/me/:id', (req, res) => {
   const userId = req.user.id; 
-  const ticketId = req.params.id;
+  // const ticketId = req.params.id;
   
-  Ticket.findOne({ _id: ticketId, userId })
+  Ticket.findOne({ _id: req.params.id , userId })
     .then(ticket => {
       if (ticket) {
         res.json(ticket);
