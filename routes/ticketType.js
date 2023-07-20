@@ -1,6 +1,7 @@
+
 const express = require("express");
 const router = express.Router();
-const TicketType = require("../model/ticketType");
+const TicketType = require("../models/ticketType");
 
 // Route pour créer un type de ticket
 router.post("/", (req, res) => {
@@ -39,8 +40,8 @@ router.get('/:id', (req, res) => {
 
 // Route pour mettre à jour un type de ticket
 router.put('/:id', (req, res) => {
-  let {name}=req.body;
-  TicketType.findByIdAndUpdate(req.params.id,name)
+  let {state}=req.body;
+  TicketType.findByIdAndUpdate(req.params.id,{state})
     .then(ticketType => {
       if (ticketType) {
         res.json(ticketType);
@@ -57,15 +58,18 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
   TicketType.findByIdAndRemove(req.params.id)
     .then(ticketType => {
+
       if (ticketType) {
         res.json({ message: 'Type de ticket supprimé avec succès' });
       } else {
         res.status(404).json({ message: 'Type de ticket non trouvé' });
       }
+
     })
     .catch(err => {
       res.status(500).json({ error: err.message });
     });
+
 });
 
 module.exports = router;
