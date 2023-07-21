@@ -13,6 +13,10 @@ const userSchema = new mongoose.Schema({
 		type: Date,
 		required: true,
 	},
+	phone: {
+		type: String,
+		required: false,
+	},
 	email: {
 		type: String,
 		required: true,
@@ -21,6 +25,41 @@ const userSchema = new mongoose.Schema({
 	password: {
 		type: String,
 	},
+	passwordHash: {
+		type: String,
+	},
+	likedBooks: [
+		{
+			type: Schema.Types.ObjectId,
+			ref: "Book",
+		},
+	],
+	purchased: [
+		{
+			type: Schema.Types.ObjectId,
+			ref: "Book",
+		},
+	],
+	cart: [
+		{
+			book: {
+				type: Schema.Types.ObjectId,
+				ref: "Book",
+				required: true,
+			},
+			quantity: {
+				type: Number,
+				required: true,
+				default: 1,
+			},
+		},
+	],
+	favorites: [
+		{
+			type: Schema.Types.ObjectId,
+			ref: "Book",
+		},
+	],
 
 	role: {
 		type: String,
