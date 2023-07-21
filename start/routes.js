@@ -5,6 +5,16 @@ const cors = require("cors");
 const auth = require("../routes/auth");
 const user = require("../routes/user");
 
+const ticketRoutes = require("../routes/ticket");
+const ticketTypeRoutes = require("../routes/ticketType");
+
+const booksRouter = require("../routes/books");
+const usersRouter = require("../routes/users");
+const couponsRouter = require("../routes/coupons");
+const ordersRouter = require("../routes/orders");
+const commentsRouter = require("../routes/comments");
+const likesRouter = require("../routes/likes");
+
 module.exports = (app) => {
 	app.use(cors());
 	app.use(express.json());
@@ -12,6 +22,16 @@ module.exports = (app) => {
 	app.use(passport.session());
 	app.use("/auth", auth);
 	app.use("/users", user);
+
+	app.use("/tickets/types", ticketTypeRoutes);
+	app.use("/tickets", ticketRoutes);
+
+	app.use("/api/books", booksRouter);
+	app.use("/api/", usersRouter);
+	app.use("/api/", couponsRouter);
+	app.use("/api/", ordersRouter);
+	app.use("/api/", commentsRouter);
+	app.use("/api/", likesRouter);
 
 	// Define other routes
 	app.get("/", (req, res) => {

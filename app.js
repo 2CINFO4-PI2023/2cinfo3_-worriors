@@ -1,50 +1,35 @@
+require("express-async-errors");
+const express = require("express");
 
+const morgan = require("morgan");
 
-const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
-const cors = require('cors');
-const mongoose = require('mongoose');
+const error = require("./middlewares/error");
+
+const userRouter = require("./routes/user");
+const ticketRoutes = require("./routes/ticket");
+const ticketTypeRoutes = require("./routes/ticketType");
 
 const app = express();
-const PORT = process.env.PORT || 4000;
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/bookstore';
 
-try {
-  mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
-  console.log("Connected to DB.");
-} catch (e) {
-  console.log("Failed to initiate mongo.");
-  console.log(e);
-  throw e;
-}
+require("./start/variables")();
+app.use(morgan("dev"));
+require("./start/db")();
+require("./start/session")(app);
+require("./start/passport")();
+require("./start/routes")(app);
+app.use("/users", userRouter);
+// add the tickets route to routes.js
+// add the tickets/types route to routes.js
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors());
+// app.use("/tickets/types", ticketTypeRoutes);
+// app.use("/tickets", ticketRoutes);
 
-// Import your routes
-const booksRouter = require('./routes/books');
-const usersRouter = require('./routes/users');
-const couponsRouter = require('./routes/coupons');
-const ordersRouter = require('./routes/orders');
-const commentsRouter = require('./routes/comments');
-const likesRouter = require('./routes/likes');
-// Use your routes
-app.use('/api/', booksRouter);
-app.use('/api/', usersRouter);
-app.use('/api/', couponsRouter);
-app.use('/api/', ordersRouter);
-app.use('/api/', commentsRouter);
-app.use('/api/', likesRouter);
+app.use(error);
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+// Start the server
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+	console.log(`Server is running on http://localhost:${port}`);
 });
 
 module.exports = app;
-
