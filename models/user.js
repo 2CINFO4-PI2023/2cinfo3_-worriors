@@ -15,7 +15,6 @@ const userSchema = new mongoose.Schema({
 	},
 	phone: {
 		type: String,
-		required: false,
 	},
 	email: {
 		type: String,
@@ -45,11 +44,9 @@ const userSchema = new mongoose.Schema({
 			book: {
 				type: Schema.Types.ObjectId,
 				ref: "Book",
-				required: true,
 			},
 			quantity: {
 				type: Number,
-				required: true,
 				default: 1,
 			},
 		},
