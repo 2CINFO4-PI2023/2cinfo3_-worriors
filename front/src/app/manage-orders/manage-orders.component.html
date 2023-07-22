@@ -1,0 +1,70 @@
+<div class="container">
+    <h2>Manage Orders</h2>
+<!-- Styling for the status filter -->
+<select class="status-filter" [(ngModel)]="statusFilter" (ngModelChange)="filterByStatus(statusFilter)">
+  <option value="">All</option>
+  <option value="Confirmed">Confirmed</option>
+  <option value="Rejected">Rejected</option>
+  <option value="Validated">Validated</option>
+  <option value="Canceled">Canceled</option>
+</select>
+
+<!-- Styling for the sorting select dropdown -->
+<select class="sort-dropdown" [(ngModel)]="sortOption" (ngModelChange)="sortOrders()">
+  <option value="date">Sort by Date</option>
+  <option value="total">Sort by Total</option>
+</select>
+
+    <div class="order-list">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Order Number</th>
+            <th>Created At</th>
+            <th>Updated At</th>
+            <th>User Email</th>
+            <th>Order Email</th>
+            <th>Total</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of filteredOrders">
+            <td>{{ order.number }}</td>
+            <td>{{ order.createdAt | date }}</td>
+            <td>{{ order.updatedAt | date }}</td>
+            <td>{{ order.user.email }}</td>
+            <td>{{ order.email }}</td>
+
+            <td>{{ order.total }}</td>
+            <td>{{ order.status }}</td>
+
+            <td>
+              <button class="btn btn-primary" (click)="editOrder(order)">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button class="btn btn-success" (click)="confirmOrder(order)">
+                <i class="fas fa-check"></i>
+              </button>
+              <button class="btn btn-danger" (click)="rejectOrder(order)">
+                <i class="fas fa-times"></i>
+              </button>
+              <button class="btn btn-warning" (click)="cancelOrder(order)">
+                <i class="fas fa-ban"></i>
+              </button>
+            </td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+  <!-- JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>

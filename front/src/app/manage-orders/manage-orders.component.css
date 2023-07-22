@@ -1,0 +1,41 @@
+
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: center;
+  }
+  
+  .order-list {
+    margin-top: 30px;
+  }
+  
+  button {
+    margin: 5px;
+  }
+  /* Styling for the status filter */
+.status-filter {
+  padding: 8px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Style for the sorting select dropdown */
+.sort-dropdown {
+  padding: 8px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  color: #333;
+}
