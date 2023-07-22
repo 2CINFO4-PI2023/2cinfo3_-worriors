@@ -38,7 +38,12 @@ export class LoginComponent {
             response,
             user: this.userService.getUser(),
           });
-          this.router.navigate(['/books']);
+
+          if (response.role === 'admin') {
+            this.router.navigate(['/admindashboard']);
+          } else {
+            this.router.navigate(['/books']);
+          }
           // You can perform additional actions here, such as storing authentication tokens, etc.
         },
         (error) => {

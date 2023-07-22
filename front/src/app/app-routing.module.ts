@@ -12,11 +12,15 @@ import { ViewBookComponent } from './view-book/view-book.component';
 import { ManageOrdersComponent } from './manage-orders/manage-orders.component';
 import { LoginComponent } from './login/login.component';
 import { SigninComponent } from './signin/signin.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' }, // Default route
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
   { path: 'signin', component: SigninComponent, canActivate: [AuthGuard] },
+  { path: 'users', component: UsersComponent },
+  { path: 'admindashboard', component: AdminDashboardComponent },
   { path: 'books', component: BooksComponent },
   { path: 'books/:id', component: ViewBookComponent },
 

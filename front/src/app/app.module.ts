@@ -30,6 +30,8 @@ import { LoginComponent } from './login/login.component';
 import { SigninComponent } from './signin/signin.component';
 import { SessionService } from './services/session.service';
 import { AuthGuard } from './auth.guard';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import { AuthGuard } from './auth.guard';
     EditOrdersComponent,
     LoginComponent,
     SigninComponent,
+    AdminDashboardComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,

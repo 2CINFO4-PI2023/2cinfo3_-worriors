@@ -13,7 +13,8 @@ const { encrypt } = require("../controllers/auth");
 const auth = require("../middlewares/auth");
 const admin = require("../middlewares/admin");
 
-router.get("/all", auth, admin, (req, res) => {
+// add the authauth
+router.get("/all", (req, res) => {
 	getAllUsers().then((users) => {
 		res.send(users);
 	});

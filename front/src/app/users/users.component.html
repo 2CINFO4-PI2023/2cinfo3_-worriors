@@ -1,0 +1,57 @@
+<div class="container">
+  <h2>Manage Orders</h2>
+
+
+  <!-- Add a select dropdown for sorting -->
+  <div class="order-list">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>
+            firstName
+          </th>
+          <th>
+            lastName
+          </th>
+          <th>
+            birthday
+          </th>
+          <th>
+            phone
+          </th>
+          <th>
+            email
+          </th>
+          <th>
+            role
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+
+          <td>{{ user.firstName }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>{{ user.birthday | date }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.role }}</td>
+
+
+
+          <td>
+            <button class="btn btn-warning" (click)="editUser(user)">edit</button>
+            <button class="btn btn-danger" (click)="deleteUser(user)">delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<!-- JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
