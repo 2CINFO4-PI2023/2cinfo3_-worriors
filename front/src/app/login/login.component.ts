@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from '../services/api.service'; // Update the path to your ApiService
 import { UserService } from '../services/user.Service'; // Update the path to your UserService
 import { SessionService } from '../services/session.service';
@@ -14,6 +15,7 @@ export class LoginComponent {
   errors: any = {};
 
   constructor(
+    private router: Router,
     private apiService: ApiService,
     private userService: UserService,
     private sessionService: SessionService
@@ -36,6 +38,7 @@ export class LoginComponent {
             response,
             user: this.userService.getUser(),
           });
+          this.router.navigate(['/books']);
           // You can perform additional actions here, such as storing authentication tokens, etc.
         },
         (error) => {

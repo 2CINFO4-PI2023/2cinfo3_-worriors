@@ -26,6 +26,10 @@ import { CreateUserComponent } from './create-user/create-user.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { ManageOrdersComponent } from './manage-orders/manage-orders.component';
 import { EditOrdersComponent } from './edit-orders/edit-orders.component';
+import { LoginComponent } from './login/login.component';
+import { SigninComponent } from './signin/signin.component';
+import { SessionService } from './services/session.service';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -42,8 +46,8 @@ import { EditOrdersComponent } from './edit-orders/edit-orders.component';
     CreateUserComponent,
     ManageOrdersComponent,
     EditOrdersComponent,
-    
-    
+    LoginComponent,
+    SigninComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,8 +63,7 @@ import { EditOrdersComponent } from './edit-orders/edit-orders.component';
     MatMenuModule,
     MatButtonToggleModule,
   ],
-  providers: [UserService],
+  providers: [UserService, SessionService, AuthGuard],
   bootstrap: [AppComponent],
-
 })
-export class AppModule { }
+export class AppModule {}
