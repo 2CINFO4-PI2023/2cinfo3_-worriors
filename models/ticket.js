@@ -15,9 +15,9 @@ const ticketSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  content: {
+  description: {
     type: String,
-    required: true
+    required: true 
   },
   submissionDate: {
     type: Date,
