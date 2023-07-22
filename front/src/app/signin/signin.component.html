@@ -1,0 +1,82 @@
+<div>
+  <form (ngSubmit)="onSubmit()">
+    <div>
+      <label for="firstName">First Name:</label>
+      <input
+        type="text"
+        id="firstName"
+        [(ngModel)]="firstName"
+        name="firstName"
+        required
+        [ngClass]="{ 'error-input': submitted && errors.firstName }"
+      />
+      <div *ngIf="submitted && errors.firstName" class="error-message">
+        {{ errors.firstName }}
+      </div>
+    </div>
+    <div>
+      <label for="lastName">Last Name:</label>
+      <input
+        type="text"
+        id="lastName"
+        [(ngModel)]="lastName"
+        name="lastName"
+        required
+        [ngClass]="{ 'error-input': submitted && errors.lastName }"
+      />
+      <div *ngIf="submitted && errors.lastName" class="error-message">
+        {{ errors.lastName }}
+      </div>
+    </div>
+    <div>
+      <label for="birthday">Birthday:</label>
+      <input
+        type="date"
+        id="birthday"
+        [(ngModel)]="birthday"
+        name="birthday"
+        required
+        [ngClass]="{ 'error-input': submitted && errors.birthday }"
+      />
+      <div *ngIf="submitted && errors.birthday" class="error-message">
+        {{ errors.birthday }}
+      </div>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        [(ngModel)]="email"
+        name="email"
+        required
+        [ngClass]="{ 'error-input': submitted && errors.email }"
+      />
+      <div *ngIf="submitted && errors.email" class="error-message">
+        {{ errors.email }}
+      </div>
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input
+        type="password"
+        id="password"
+        [(ngModel)]="password"
+        name="password"
+        required
+        [ngClass]="{ 'error-input': submitted && errors.password }"
+      />
+      <div *ngIf="submitted && errors.password" class="error-message">
+        {{ errors.password }}
+      </div>
+    </div>
+    <div *ngIf="submitted && signinError" class="error-message">
+      {{ "sign in error" }}
+    </div>
+    <button type="submit">Sign In</button>
+  </form>
+  <a href="" class="google-signin-button">
+    <img src="assets/google-logo.png" alt="Google Logo" class="google-logo" />
+    Sign in with Google
+  </a>
+</div>
