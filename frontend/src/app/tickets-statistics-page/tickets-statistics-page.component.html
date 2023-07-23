@@ -1,0 +1,66 @@
+<!-- tickets-statistics-page.component.html -->
+<div class="p-4">
+  <h2 class="text-2xl mb-4">Tickets Statistics</h2>
+
+
+  <!-- Total Tickets, Open Tickets, and Closed Tickets -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+    <div class="bg-blue-100 rounded-lg shadow p-6">
+      <i class="material-icons text-blue-500 mr-2">receipt</i>
+      <h3 class="text-lg font-bold mb-2">Total Tickets</h3>
+      <h1 class="text-4xl">{{ ticketStatistics.totalTickets }}</h1>
+    </div>
+
+    <div class="bg-yellow-100 rounded-lg shadow p-6">
+      <i class="material-icons text-yellow-500 mr-2">pending</i>
+      <h3 class="text-lg font-bold mb-2">Open Tickets</h3>
+      <h1 class="text-4xl"> {{ ticketStatistics.openTickets }}</h1>
+    </div>
+
+    <div class="bg-green-100 rounded-lg shadow p-6">
+      <i class="material-icons text-green-500 mr-2">check_circle</i>
+      <h3 class="text-lg font-bold mb-2">Resolved Tickets</h3>
+      <h1 class="text-4xl"> {{ ticketStatistics.resolvedTickets }}</h1>
+    </div>
+  </div>
+
+  <!-- Average Resolution Time and Customer Satisfaction (CSAT) Score -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+    <div class="bg-purple-100 rounded-lg shadow p-6">
+      <i class="material-icons text-purple-500 mr-2">access_time</i>
+      <h3 class="text-lg font-bold mb-2">Average Resolution Time</h3>
+      <h1 class="text-4xl">2 days</h1>
+    </div>
+
+    <div class="bg-blue-100 rounded-lg shadow p-6">
+      <i class="material-icons text-blue-500 mr-2">thumb_up</i>
+      <h3 class="text-lg font-bold mb-2">Customer Satisfaction (CSAT) Score</h3>
+      <h1 class="text-4xl">85%</h1>
+    </div>
+  </div>
+
+  <!-- Number of Tickets Monthly -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+  <div class="bg-slate-100 rounded-lg shadow p-6 mb-4">
+    <i class="material-icons text-pink-500 mr-2">event</i>
+    <h3 class="text-lg font-bold mb-2">Number of Tickets Monthly</h3>
+    <canvas id="monthlyTicketsChart"></canvas>
+  </div>
+
+  <!-- Ticket Priority Distribution and Percentage of Tickets by Status -->
+  <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-4"> -->
+    <div class="bg-slate-100 rounded-lg shadow p-6">
+      <h3 class="text-lg font-bold mb-2">
+        <i class="material-icons text-orange-500 mr-2">priority_high</i>Ticket Priority Distribution
+      </h3>
+      <canvas id="ticketPriorityChart"></canvas>
+    </div>
+
+    <div class="bg-slate-100 rounded-lg shadow p-6">
+      <i class="material-icons text-green-500 mr-2">pie_chart</i>
+      <h3 class="text-lg font-bold mb-2">Percentage of Tickets by Status</h3>
+      <canvas id="statusPercentageChart"></canvas>
+    </div>
+  <!-- </div> -->
+</div>
+</div>

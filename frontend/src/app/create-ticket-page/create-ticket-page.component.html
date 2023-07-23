@@ -1,0 +1,68 @@
+<div class="p-4">
+    <h2 class="text-2xl mb-6">Create Ticket</h2>
+    <form class="max-w-md mx-auto" #ticketsForm="ngForm" (ngSubmit)="onTicketCreate(ticketsForm.value)">
+      <div class="mb-6">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="title">
+          Ticket Title:
+        </label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          class="w-full px-4 py-3 border rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-700 placeholder-gray-400"
+          placeholder="Enter ticket title" ngModel
+        />
+      </div>
+      <!-- <div class="mb-6">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="title">
+          user id (just for test)
+        </label>
+        <input
+          type="text"
+          id="user"
+          name="user"
+          class="w-full px-4 py-3 border rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-700 placeholder-gray-400"
+          placeholder="Enter ticket user" ngModel
+        />
+      </div> -->
+      <div class="mb-6">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="description">
+          Ticket Description:
+        </label>
+        <textarea
+          id="description"
+          name="description"
+          class="w-full px-4 py-3 border rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-700 placeholder-gray-400 resize-none"
+          rows="4"
+          placeholder="Enter ticket description" ngModel
+        ></textarea>
+      </div>
+  
+      <div class="mb-6">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="type">
+          Ticket Type:
+        </label>
+        <select
+          id="type"
+          name="type"
+          class="w-full px-4 py-3 border rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-700" ngModel
+        >
+          <option value="Bug">Bug</option>
+          <option value="Feature">Feature</option>
+          <option value="Task">Task</option>
+        </select>
+      </div>
+  
+
+  
+      <div class="flex items-center justify-center">
+        <button
+          type="submit"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg focus:outline-none focus:shadow-outline"
+        >
+          Create Ticket
+        </button>
+      </div>
+    </form>
+  </div>
+  

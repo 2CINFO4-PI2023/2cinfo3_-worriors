@@ -1,0 +1,142 @@
+<!-- Invoice -->
+<div class="max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto my-4 sm:my-10">
+  <!-- Grid -->
+  <div class="mb-5 pb-5 flex justify-between items-center border-b border-gray-200 dark:border-gray-700">
+    <div>
+      <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-200">Ticket Details</h2>
+    </div>
+    
+  </div>
+  <!-- End Grid -->
+
+  <!-- Grid -->
+  <div class="grid md:grid-cols-2 gap-3">
+    <div>
+      <div class="grid space-y-3">
+        <dl class="grid sm:flex gap-x-3 text-sm">
+          <dt class="min-w-[150px] max-w-[200px] text-gray-500">
+            Ticket Title: 
+          </dt>
+            <dd class="font-medium text-gray-800 dark:text-gray-200">
+              {{ ticket.title }}
+            </dd>
+        </dl>
+
+        <dl class="grid sm:flex gap-x-3 text-sm">
+          <dt class="min-w-[150px] max-w-[200px] text-gray-500">
+            Ticket type: 
+          </dt>
+            <dd class="font-medium text-gray-800 dark:text-gray-200">
+              {{ ticketType }}
+            </dd>
+        </dl>
+
+        <dl class="grid sm:flex gap-x-3 text-sm">
+          <dt class="min-w-[150px] max-w-[200px] text-gray-500">
+            Ticket description:
+          </dt>
+          <dd class="font-medium text-gray-800 dark:text-gray-200">
+            <span class="block font-normal">{{ ticket.description }}</span>
+          </dd>
+        </dl>
+
+        <dl class="grid sm:flex gap-x-3 text-sm">
+          <dt class="min-w-[150px] max-w-[200px] text-gray-500">
+            Submission date:
+          </dt>
+          <dd class="font-medium text-gray-800 dark:text-gray-200">
+            {{ticket.submissionDate}}
+          </dd>
+        </dl>
+
+        <dl class="grid sm:flex gap-x-3 text-sm">
+          <dt class="min-w-[150px] max-w-[200px] text-gray-500">
+            Ticket status:
+          </dt>
+          <dd class="font-medium text-gray-800 dark:text-gray-200" [ngSwitch]="ticket.status">
+            <span class="bg-red-200 text-red-600 py-1 px-3 rounded-full text-center text-center" *ngSwitchCase="'Open'">Open</span>
+            <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs text-center" *ngSwitchCase="'Resolved'">Resolved</span>
+            <span class="bg-yellow-200 text-yellow-600 py-1 px-3 rounded-full text-xs text-center" *ngSwitchCase="'In Progress'">In Progress</span>
+            <span class="bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs text-center" *ngSwitchDefault>Open</span>
+          </dd>
+          <!-- <dl class="grid sm:flex gap-x-3 text-sm" [ngSwitch]="ticket.status">
+            <span class="bg-red-200 text-red-600 py-1 px-3 rounded-full text-center text-center" *ngSwitchCase="'Open'">Open</span>
+            <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs text-center" *ngSwitchCase="'Resolved'">Resolved</span>
+            <span class="bg-yellow-200 text-yellow-600 py-1 px-3 rounded-full text-xs text-center" *ngSwitchCase="'In Progress'">In Progress</span>
+            <span class="bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs text-center" *ngSwitchDefault>Open</span>
+        </dl> -->
+        </dl>
+
+        <dl class="grid sm:flex gap-x-3 text-sm">
+          <dt class="min-w-[150px] max-w-[200px] text-gray-500">
+            Ticket priority:
+          </dt>
+          <!-- <dd class="font-medium text-gray-800 dark:text-gray-200">
+            {{ticket.priority}}
+          </dd> -->
+          <dd class="font-medium text-gray-800 dark:text-gray-200" [ngSwitch]="ticket.priority">
+            <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-center text-center" *ngSwitchCase="'Low'">Low</span>
+            <span class="bg-yellow-200 text-yellow-600 py-1 px-3 rounded-full text-xs text-center" *ngSwitchCase="'Medium'">Medium</span>
+            <span class="bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs text-center" *ngSwitchCase="'High'">High</span>
+            <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs text-center" *ngSwitchDefault>Low</span>
+          </dd>
+        </dl>
+
+        <div class="mt-8 flex sm:justify-end">
+          <div class="w-full max-w-2xl sm:text-right space-y-2">
+        <!-- <div class="flex justify-end mt-4"> -->
+          <button mat-icon-button [routerLink]="['/create-ticket']" (click)="updateTicket()">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <!-- (click)="deleteTicket(ticket.id)" -->
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+</div>
+      </div>
+    </div>
+    <!-- Col -->
+
+  </div>
+  <!-- End Grid -->
+
+</div>
+<!-- End Invoice -->
+
+
+<!-- 
+<div class="p-4">
+    <div class="bg-white shadow-md rounded-md p-6">
+      <h2 class="text-2xl mb-4">Ticket Details</h2>
+      <h3 class="text-lg font-semibold mb-2">{{ ticket.title }}</h3>
+  
+      <div class="my-4"> -->
+        <!-- <p class="text-gray-800"><mat-icon class="mr-2">person</mat-icon><strong>Ticket Owner:</strong> {{ ticket.owner }}</p>
+        <p class="text-gray-800"><mat-icon class="mr-2">receipt</mat-icon><strong>Ticket Type:</strong></p>
+        <mat-chip>{{ ticket.status }}</mat-chip> -->
+        <!-- <p class="text-gray-800 mt-4"><mat-icon class="mr-2">description</mat-icon><strong>Description:</strong></p>
+        <p class="text-gray-600">{{ ticket.description }}</p>
+      </div>
+  
+      <div class="flex flex-wrap justify-between">
+        <div class="w-full md:w-1/2">
+          <p class="text-gray-800"><mat-icon class="mr-2">calendar_today</mat-icon><strong>Submission Date:</strong> {{ ticket.submissionDate }}</p>
+          <p class="text-gray-800"><mat-icon class="mr-2">assignment_turned_in</mat-icon><strong>Ticket status:</strong></p>
+          <mat-chip>{{ ticket.status }}</mat-chip>
+        </div>
+      </div>
+
+      <div class="flex justify-end mt-4">
+        <button mat-icon-button> -->
+          <!-- (click)="editTicket(ticket.id)" -->
+          <!-- <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button> -->
+          <!-- (click)="deleteTicket(ticket.id)" -->
+          <!-- <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+   -->
