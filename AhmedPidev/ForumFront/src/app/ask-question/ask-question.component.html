@@ -1,0 +1,149 @@
+<div class="top-menu-bottom932">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle
+                        navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span
+                        class="icon-bar"></span> </button>
+                <a class="navbar-brand" href="#"><img src="assets/image/logo.png" alt="Logo"></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav"> </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="ask_question.html">Ask Question</a></li>
+                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                            aria-haspopup="true" aria-expanded="false">Question <span class="caret"></span></a>
+                        <ul class="dropdown-menu animated zoomIn">
+                            <li><a href="category.html">Question Category</a></li>
+                            <li><a href="category.html">HTML</a></li>
+                            <li><a href="category.html">CSS</a></li>
+                            <li><a href="category.html">Javascript</a></li>
+                            <li><a href="category.html">Bootstrap</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                            aria-haspopup="true" aria-expanded="false">Blog <span class="caret"></span></a>
+                        <ul class="dropdown-menu animated zoomIn">
+                            <li><a href="blog.html">Blog </a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                            aria-haspopup="true" aria-expanded="false">Page <span class="caret"></span></a>
+                        <ul class="dropdown-menu animated zoomIn">
+                            <li><a href="logIn.html">Login</a></li>
+                            <li><a href="contact_us.html"> Contact Us</a></li>
+                            <li><a href="ask_question.html"> Ask Question </a></li>
+                            <li><a href="post-deatils.html"> Post-Details </a></li>
+                            <li><a href="user.html">All User</a></li>
+                            <li><a href="user_question.html"> User Question </a></li>
+                            <li><a href="category.html"> Category </a></li>
+                            <li><a href="#"> 404 </a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact_us.html">Contact us</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+</div>
+<br>
+<section class="header-descriptin329">
+    <div class="container">
+        <h3>Ask Question</h3>
+        <ol class="breadcrumb breadcrumb839">
+            <li><a href="#">Home</a></li>
+            <li class="active">Ask Question</li>
+        </ol>
+    </div>
+</section>
+<section class="main-content920">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="ask-question-input-part032">
+                    <h4>Ask Question</h4>
+                    <hr>
+                    <form #f1="ngForm">
+                        <div class="username-part940">
+                            <span class="form-description43">Question-Title* </span>
+                            <input type="text" id="title" name="title" required [(ngModel)]="question.title" #i="ngModel" class="username029" placeholder="Enter your Question Title">
+                            <div *ngIf="i.errors?.['required']">
+                                Title is required.
+                              </div>
+                        
+                        </div>
+
+                        <br>
+
+                        <div class="username-part940">
+                            <span class="form-description43">Question-Description* </span>
+                            <input type="text" name="description" required [(ngModel)]="question.description" #ii="ngModel" class="username029" placeholder="Enter your Question Description ">
+                            <div *ngIf="ii.errors?.['required']">
+                                Description is required.
+                              </div>
+                        </div>
+
+                        <br>
+
+                        <div class="username-part940">
+                            <span class="form-description43">Question-Category* </span>
+                            <input type="text" name="category" required [(ngModel)]="question.category" #iii="ngModel" class="username029" placeholder="Enter your Question Description ">
+                            <div *ngIf="iii.errors?.['required']">
+                                Category is required.
+                              </div>
+                        </div>
+
+
+                        <div class="publish-button2389">
+                            <button [disabled]="!f1.valid" type="submit" (click)="AddQuestion(f1.value)" class="publis1291">Publish your Question</button>
+                        </div>
+                    </form>
+
+                </div>
+
+
+            </div>
+            <!--                end of col-md-9 -->
+
+            <!--           strart col-md-3 (side bar)-->
+
+        </div>
+    </div>
+</section>
+
+<!--    footer -->
+<div class="footer-search">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</div>
+
+
+<section class="footer-social">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <p>Copyright 2017 Ask me | <strong>Sudo Coder</strong></p>
+            </div>
+            <div class="col-md-6">
+                <div class="social-right2389">
+                    <a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "8ab7b30c-3783-42ac-a955-d550f05517c7",
+		"name": "ForumProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:4012/api/users"
+			},
+			"response": []
+		},
+		{
+			"name": "post users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Mohamed\",\r\n    \"phone\":\"85963257\",\r\n    \"email\":\"Mohamed@hotmail.fr\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4012/api/users"
+			},
+			"response": []
+		},
+		{
+			"name": "get questions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:4012/api/questions"
+			},
+			"response": []
+		},
+		{
+			"name": "get responses",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:4012/api/responses"
+			},
+			"response": []
+		},
+		{
+			"name": "add question",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"What is this book called  A Thousand Splendid Suns – Khalid Hosseini.\",\r\n    \"description\":\"I want to know what this book is about \",\r\n    \"category\":\"Crime\",\r\n    \"UserId\":\"64a98ff9d2c9fdf898495c25\",\r\n    \"solved\":\"false\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4012/api/questions"
+			},
+			"response": []
+		},
+		{
+			"name": "add response",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "http://localhost:4012/api/responses"
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,201 @@
+
+    <div class="top-menu-bottom932">
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                    <a class="navbar-brand" href="#"><img src="assets/image/logo.png" alt="Logo"></a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav"> </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="ask_question.html">Ask Question</a></li>
+                        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Question <span class="caret"></span></a>
+                            <ul class="dropdown-menu animated zoomIn">
+                                <li><a href="category.html">Question Category</a></li>
+                                <li><a href="category.html">HTML</a></li>
+                                <li><a href="category.html">CSS</a></li>
+                                <li><a href="category.html">Javascript</a></li>
+                                <li><a href="category.html">Bootstrap</a></li>
+                            </ul>
+                        </li>
+                       
+                        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog <span class="caret"></span></a>
+                            <ul class="dropdown-menu animated zoomIn">
+                                <li><a href="blog.html">Blog </a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Page <span class="caret"></span></a>
+                            <ul class="dropdown-menu animated zoomIn">
+                                <li><a href="logIn.html">Login</a></li>
+                                <li><a href="contact_us.html"> Contact Us</a></li>
+                                <li><a href="ask_question.html"> Ask Question </a></li>
+                                <li><a href="post-deatils.html"> Post-Details </a></li>
+                                <li><a href="user.html">All User</a></li>
+                                <li><a href="#"> User Question </a></li>
+                                <li><a href="#"> Category </a></li>
+                                <li><a href="#"> 404 </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="contact_us.html">Contact us</a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+    </div><br>
+    <section class="header-descriptin329">
+        <div class="container">
+            <h3>Post Details</h3>
+            <ol class="breadcrumb breadcrumb839">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Post Details</a></li>
+                <li class="active">This Is My first Question</li>
+            </ol>
+        </div>
+    </section>
+    <section class="main-content920">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="post-details">
+                        <div class="details-header923">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="post-title-left129">
+                                        <h3>{{question.title}}</h3> </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="post-que-rep-rihght320"> <a href="#"><i class="fa fa-question-circle" aria-hidden="true"></i> Question</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post-details-info1982">
+                            <p>{{question.description}}</p>
+                            <hr>
+                            <div class="post-footer29032">
+                                <div class="l-side2023"> 
+                                    <i *ngIf="question.solved" class="fa fa-check check2" aria-hidden="true"> solved</i>
+                                    
+                                        <button *ngIf="!question.solved" type="button" class="btn btn-success" (click)="solve()">Click to Solve Question ✔</button>
+                                     <a href="#"></a> 
+                                     <i class="fa fa-folder folder2" aria-hidden="true">{{question.category}}</i>
+                                      <a href="#"><i class="fa fa-commenting commenting2" aria-hidden="true">{{this.question_response.length}} answer</i></a> </div>
+                                <!-- <div class="l-rightside39">
+                                    <button type="button" class="tolltip-button thumbs-up2" data-toggle="tooltip" data-placement="bottom" title="Like"><i class="fa fa-thumbs-o-up " aria-hidden="true"></i></button>
+                                    <button type="button" class="tolltip-button  thumbs-down2" data-toggle="tooltip" data-placement="bottom" title="Dislike"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></button> <span class="single-question-vote-result">+22</span> </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="author-details8392">
+                        <div class="author-img202l"> <img src="assets/image/images.png" alt="image">
+                            <div class="au-image-overlay text-center"> <a href="#"><i class="fa fa-plus-square-o" aria-hidden="true"></i></a> </div>
+                        </div> <span class="author-deatila04re">
+                   <h5>About the Author</h5>
+                    <p>Ahmed</p>
+                    <p>Ahmed@gmail.com</p>
+                    
+                </span> </div>
+                    <!-- <div class="related3948-question-part">
+                        <h3>Related questions</h3>
+                        <hr>
+                        <p><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>This Is My Second Poll Question</a></p>
+                        <p><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>This is my third Question</a></p>
+                        <p><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>This is my fourth Question</a></p>
+                        <p><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>This is my fifth Question</a></p>
+                    </div> -->
+                    <div class="comment-list12993">
+                        <div class="container">
+                            <div class="row">
+                           
+                                <div class="comments-container">
+                                    <ul id="comments-list" class="comments-list">
+                                        <li *ngFor="let res of question_response">
+                                             <div class="comment-main-level">
+                                               
+                                                    <i *ngIf="isAdmin" class="fa fa-trash" (click)="deleteResponse(res._id)" aria-hidden="true"></i>
+                                                <!-- Avatar -->
+                                                <div class="comment-avatar"><img src="assets/image/images.png" alt=""></div>
+                                                <!-- Contenedor del Comentario -->
+                                                <div class="comment-box">
+                                                    <div class="comment-head">
+                                                        <h6 class="comment-name"><a href="#">Ahmed</a></h6> <span><i class="fa fa-clock-o" aria-hidden="true"> January 15 , 2014 at 10:00 pm</i></span> <i class="fa fa-reply"></i> <i class="fa fa-heart"></i> </div>
+                                                    <div class="comment-content"> {{res.response}} </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        
+                                    </ul>
+                        
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment289-box">
+                        <form #f2="ngForm">
+
+
+                        <h3>Leave A Reply</h3>
+                        <hr>
+                        <div class="row">
+
+                            
+                             <div class="col-md-4">
+                                    <div class="replay-input-name42389">
+                                        <p>QuestionID</p>
+                                        <input type="text" #t="ngModel" name="forum_question_id" [(ngModel)]="response.forum_question_id" [value]="response.forum_question_id" class="name-box24894 input238-design" placeholder="Name"></div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="replay-email-input89298">
+                                        <p>UserID</p>
+                                        <input type="text" #tt="ngModel" name="UserId"  [(ngModel)]="response.UserId" [value]="response.UserId" class="name-box24894 input238-design" placeholder="User-ID"> </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="replay-email-input89298">
+                                        <p>Email</p>
+                                        <input type="text" #ttt="ngModel" name="email"  [(ngModel)]="response.Email" [value]="response.Email" class="name-box24894 input238-design" placeholder="E-mail"> </div>
+                                </div>
+                               <!-- <div class="col-md-4">
+                                    <div class="replay-input-websit128923">
+                                        <p>Website*</p>
+                                        <input type="text" class="name-box24894 input238-design" placeholder="Website"> </div>
+                                </div> -->
+                                <div class="col-md-12">
+                                    <div class="post9320-box">
+                                        <input type="text" #ttt="ngModel"  name="response" [(ngModel)]="response.response" class="comment-input219882" placeholder="Enter Your response"> </div>
+                                    <button type="button" (click)="AddComment(f2.value)" class="pos393-submit">Post Your Answer</button>
+                                    <br>
+                                </div>
+                                <br>
+  
+                            
+                        </div>
+                        <br>
+                    </form>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <!--    footer -->
+    
+    
+    <section class="footer-social">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Copyright Ahmed 2023 | <strong>ESPRIT</strong></p>
+                </div>
+                <div class="col-md-6">
+                    <div class="social-right2389"> <a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a> </div>
+                </div>
+            </div>
+        </div>
+    </section>

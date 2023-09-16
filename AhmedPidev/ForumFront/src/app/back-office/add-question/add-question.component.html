@@ -1,0 +1,54 @@
+<section class="main-content920">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="ask-question-input-part032">
+                    <h4>Ask Question</h4>
+                    <hr>
+                    <form #f1="ngForm">
+                        <div class="username-part940">
+                            <span class="form-description43">Question-Title* </span>
+                            <input type="text" id="title" name="title" required [(ngModel)]="question.title" #i="ngModel" class="username029" placeholder="Enter your Question Title">
+                            <div *ngIf="i.errors?.['required']">
+                                Title is required.
+                              </div>
+                        
+                        </div>
+
+                        <br>
+
+                        <div class="username-part940">
+                            <span class="form-description43">Question-Description* </span>
+                            <input type="text" name="description" required [(ngModel)]="question.description" #ii="ngModel" class="username029" placeholder="Enter your Question Description ">
+                            <div *ngIf="ii.errors?.['required']">
+                                Description is required.
+                              </div>
+                        </div>
+
+                        <br>
+
+                        <div class="username-part940">
+                            <span class="form-description43">Question-Category* </span>
+                            <input type="text" name="category" required [(ngModel)]="question.category" #iii="ngModel" class="username029" placeholder="Enter your Question Description ">
+                            <div *ngIf="iii.errors?.['required']">
+                                Category is required.
+                              </div>
+                        </div>
+
+
+                        <div class="publish-button2389">
+                            <button [disabled]="!f1.valid" type="submit" (click)="AddQuestion(f1.value)" class="publis1291">Publish your Question</button>
+                        </div>
+                    </form>
+
+                </div>
+
+
+            </div>
+            <!--                end of col-md-9 -->
+
+            <!--           strart col-md-3 (side bar)-->
+
+        </div>
+    </div>
+</section>

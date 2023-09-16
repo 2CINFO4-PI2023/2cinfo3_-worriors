@@ -1,0 +1,126 @@
+<section class="main-content920">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="post-details">
+                    <div class="details-header923">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="post-title-left129">
+                                    <h3>{{question.title}}</h3> </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="post-que-rep-rihght320"> <a href="#"><i class="fa fa-question-circle" aria-hidden="true"></i> Question</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-details-info1982">
+                        <p>{{question.description}}</p>
+                        <hr>
+                        <div class="post-footer29032">
+                            <div class="l-side2023"> 
+                                <i *ngIf="question.solved" class="fa fa-check check2" aria-hidden="true"> solved</i>
+                                
+                                    <button *ngIf="!question.solved" type="button" class="btn btn-success" (click)="solve()">Click to Solve Question ✔</button>
+                                 <a href="#"></a> 
+                                 <i class="fa fa-folder folder2" aria-hidden="true">{{question.category}}</i>
+                                  <a href="#"><i class="fa fa-commenting commenting2" aria-hidden="true">{{this.question_response.length}} answer</i></a> </div>
+                            <!-- <div class="l-rightside39">
+                                <button type="button" class="tolltip-button thumbs-up2" data-toggle="tooltip" data-placement="bottom" title="Like"><i class="fa fa-thumbs-o-up " aria-hidden="true"></i></button>
+                                <button type="button" class="tolltip-button  thumbs-down2" data-toggle="tooltip" data-placement="bottom" title="Dislike"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></button> <span class="single-question-vote-result">+22</span> </div> -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="author-details8392">
+                    <div class="author-img202l"> <img src="assets/image/images.png" alt="image">
+                        <div class="au-image-overlay text-center"> <a href="#"><i class="fa fa-plus-square-o" aria-hidden="true"></i></a> </div>
+                    </div> <span class="author-deatila04re">
+               <h5>About the Author</h5>
+                <p>Ahmed</p>
+                <p>Ahmed@gmail.com</p>
+                
+            </span> </div>
+                <!-- <div class="related3948-question-part">
+                    <h3>Related questions</h3>
+                    <hr>
+                    <p><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>This Is My Second Poll Question</a></p>
+                    <p><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>This is my third Question</a></p>
+                    <p><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>This is my fourth Question</a></p>
+                    <p><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>This is my fifth Question</a></p>
+                </div> -->
+                <div class="comment-list12993">
+                    <div class="container">
+                        <div class="row">
+                       
+                            <div class="comments-container">
+                                <ul id="comments-list" class="comments-list">
+                                    <li *ngFor="let res of question_response">
+                                         <div class="comment-main-level">
+                                           
+                                                <i *ngIf="isAdmin" class="fa fa-trash" (click)="deleteResponse(res._id)" aria-hidden="true"></i>
+                                            <!-- Avatar -->
+                                            <div class="comment-avatar"><img src="assets/image/images.png" alt=""></div>
+                                            <!-- Contenedor del Comentario -->
+                                            <div class="comment-box">
+                                                <div class="comment-head">
+                                                    <h6 class="comment-name"><a href="#">Ahmed</a></h6> <span><i class="fa fa-clock-o" aria-hidden="true"> January 15 , 2014 at 10:00 pm</i></span> <i class="fa fa-reply"></i> <i class="fa fa-heart"></i> </div>
+                                                <div class="comment-content"> {{res.response}} </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    
+                                </ul>
+                    
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment289-box">
+                    <form #f2="ngForm">
+
+
+                    <h3>Leave A Reply</h3>
+                    <hr>
+                    <div class="row">
+
+                        
+                         <div class="col-md-4">
+                                <div class="replay-input-name42389">
+                                    <p>QuestionID</p>
+                                    <input type="text" #t="ngModel" name="forum_question_id" [(ngModel)]="response.forum_question_id" [value]="response.forum_question_id" class="name-box24894 input238-design" placeholder="Name"></div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="replay-email-input89298">
+                                    <p>UserID</p>
+                                    <input type="text" #tt="ngModel" name="UserId"  [(ngModel)]="response.UserId" [value]="response.UserId" class="name-box24894 input238-design" placeholder="User-ID"> </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="replay-email-input89298">
+                                    <p>Email</p>
+                                    <input type="text" #ttt="ngModel" name="email"  [(ngModel)]="response.Email" [value]="response.Email" class="name-box24894 input238-design" placeholder="E-mail"> </div>
+                            </div>
+                           <!-- <div class="col-md-4">
+                                <div class="replay-input-websit128923">
+                                    <p>Website*</p>
+                                    <input type="text" class="name-box24894 input238-design" placeholder="Website"> </div>
+                            </div> -->
+                            <div class="col-md-12">
+                                <div class="post9320-box">
+                                    <input type="text" #ttt="ngModel"  name="response" [(ngModel)]="response.response" class="comment-input219882" placeholder="Enter Your response"> </div>
+                                <button type="button" (click)="AddComment(f2.value)" class="pos393-submit">Post Your Answer</button>
+                                <br>
+                            </div>
+                            <br>
+
+                        
+                    </div>
+                    <br>
+                </form>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
